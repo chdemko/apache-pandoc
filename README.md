@@ -26,6 +26,11 @@ Create a `/home/user/public_html/.pandoc.ini` file containing
 
 And access to `http://localhost/~user/README.md` with a browser (you will see the `html` version of this file with a table of contents). A lot of configuration options can be inserted in the `.pandoc.ini` files. See `pandoc.py` for more details.
 
-
+License
+=======
+`apache-pandoc` is released under the [CeCILL-B license](http://www.cecill.info/licences/Licence_CeCILL-B_V1-en.html)
  
  
+Authors
+=======
+ * Christophe Demko
