@@ -1,7 +1,7 @@
 Installation
 ============
 
- * Install `pandoc` on your system
+ * Install [`pandoc`](http://johnmacfarlane.net/pandoc/) on your system
  * Make sure `python` is installed
  * Copy the `pandoc.conf` file to the `conf.d` folder of your `apache` server
  * Create a `/usr/share/apache-pandoc` folder
