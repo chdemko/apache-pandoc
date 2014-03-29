@@ -185,6 +185,19 @@ elif query == 'pdf':
 	print f.read()
 	f.close()
 	os.remove(pdfFile)
+elif query == 'rtf':
+	# output richtext
+	print 'Content-type: application/rtf'
+	print 'Content-disposition: attachment; filename="' + baseName + '.rtf"'
+	print
+	sys.stdout.flush()
+	fd, rtfFile = tempfile.mkstemp('.rtf')
+	os.close(fd)
+	os.system('pandoc ' + options + '-s -o "' + rtfFile + '" "' + path + '"$
+	f = open(rtfFile, 'r')
+	print f.read()
+	f.close()
+	os.remove(rtfFile)
 elif query == 'odt':
 	# output odt
 	print "Content-type: application/vnd.oasis.opendocument.text"
