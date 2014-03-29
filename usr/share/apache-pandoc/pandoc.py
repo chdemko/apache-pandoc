@@ -166,13 +166,7 @@ if config.has_section('Pandoc'):
 	if config.has_option('Pandoc', 'webtex') and config.get('Pandoc', 'webtex') != '':
 		options += ' --webtex="' + config.get('Pandoc', 'webtex') + '"'
 
-if query == '':
-	# output html5
-	print "Content-type: text/html"
-	print
-	sys.stdout.flush()
-	os.system('pandoc ' + options + ' -s -t html5 "' + path + '"')
-elif query == 'html':
+if query == 'html':
 	# output html
 	print "Content-type: text/html"
 	print
@@ -212,6 +206,12 @@ elif query == 'raw':
 	f = open(path, 'r')
 	print f.read()
 	f.close()
+else:
+	# output html5
+	print "Content-type: text/html"
+	print
+	sys.stdout.flush()
+	os.system('pandoc ' + options + ' -s -t html5 "' + path + '"')
 
 exit(0)
 
