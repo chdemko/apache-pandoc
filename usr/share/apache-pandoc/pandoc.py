@@ -193,7 +193,7 @@ elif query == 'rtf':
 	sys.stdout.flush()
 	fd, rtfFile = tempfile.mkstemp('.rtf')
 	os.close(fd)
-	os.system('pandoc ' + options + '-s -o "' + rtfFile + '" "' + path + '"$
+	os.system('pandoc ' + options + '-s -o "' + rtfFile + '" "' + path + '"')
 	f = open(rtfFile, 'r')
 	print f.read()
 	f.close()
