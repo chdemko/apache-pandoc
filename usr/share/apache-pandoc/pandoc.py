@@ -166,13 +166,7 @@ if config.has_section('Pandoc'):
 	if config.has_option('Pandoc', 'webtex') and config.get('Pandoc', 'webtex') != '':
 		options += ' --webtex="' + config.get('Pandoc', 'webtex') + '"'
 
-if query == '':
-	# output html5
-	print "Content-type: text/html"
-	print
-	sys.stdout.flush()
-	os.system('pandoc ' + options + ' -s -t html5 "' + path + '"')
-elif query == 'html':
+if query == 'html':
 	# output html
 	print "Content-type: text/html"
 	print
@@ -191,6 +185,19 @@ elif query == 'pdf':
 	print f.read()
 	f.close()
 	os.remove(pdfFile)
+elif query == 'rtf':
+	# output richtext
+	print 'Content-type: application/rtf'
+	print 'Content-disposition: attachment; filename="' + baseName + '.rtf"'
+	print
+	sys.stdout.flush()
+	fd, rtfFile = tempfile.mkstemp('.rtf')
+	os.close(fd)
+	os.system('pandoc ' + options + '-s -o "' + rtfFile + '" "' + path + '"')
+	f = open(rtfFile, 'r')
+	print f.read()
+	f.close()
+	os.remove(rtfFile)
 elif query == 'odt':
 	# output odt
 	print "Content-type: application/vnd.oasis.opendocument.text"
@@ -212,6 +219,12 @@ elif query == 'raw':
 	f = open(path, 'r')
 	print f.read()
 	f.close()
+else:
+	# output html5
+	print "Content-type: text/html"
+	print
+	sys.stdout.flush()
+	os.system('pandoc ' + options + ' -s -t html5 "' + path + '"')
 
 exit(0)
 
