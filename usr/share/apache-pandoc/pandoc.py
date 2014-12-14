@@ -27,9 +27,11 @@ while True:
 		break
 	else:
 		configs.insert(0, head + '/.pandoc.ini')
+		configs.insert(0, head + '/.apache-pandoc.ini')
 		(head, tail) = os.path.split(head)
 
 configs.insert(0, '/etc/pandoc.ini')
+configs.insert(0, '/etc/apache-pandoc.ini')
 configs.append(dirName + '/.' + baseName + fileExtension + '.ini')
 
 # Initialise config reader
