@@ -13,6 +13,7 @@ Usage
 =====
 
  * Copy this file to a folder accessible by `apache` (i.e. `/home/user/public_html`)
+ * Access `http://localhost/~user/README.md` with a browser (you will see the `html5` version of this file)
  * Access `http://localhost/~user/README.html` with a browser (you will see the `html` version of this file)
  * Access `http://localhost/~user/README.pdf` with a browser (you will see the `pdf` version of this file)
  * Access `http://localhost/~user/README.rtf` with a browser (you will see the `rtf` version of this file)
